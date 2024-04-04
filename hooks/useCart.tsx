@@ -33,8 +33,8 @@ export const CartContextProvider = (props: Props) => {
     null
   );
 
-  console.log("qty", cartTotalQty);
-  console.log("amount", cartTotalAmount);
+  // console.log("qty", cartTotalQty);
+  // console.log("amount", cartTotalAmount);
 
   // console.log(cartTotalQty);
 
