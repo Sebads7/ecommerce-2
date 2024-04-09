@@ -64,7 +64,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
   if (currentUser) {
     return (
       <div className="text-center">
-        <p>You are logged in...</p>
+        <p>You are already logged in...</p>
         <p>Redirecting</p>
       </div>
     );
@@ -78,9 +78,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
         outline
         label="Login wth Google"
         icon={AiOutlineGoogle}
-        onClick={() => {
-          signIn("google");
-        }}
+        onClick={() => {}}
       />
       <hr className="bg-slate-300 w-full h-px" />
 

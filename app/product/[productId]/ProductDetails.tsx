@@ -20,7 +20,6 @@ export type CartProductType = {
   id: string;
   name: string;
   description: string;
-  category: string;
   brand: string;
   selectedImg: SelectedImgType;
   quantity: number;
@@ -47,7 +46,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     id: product.id,
     name: product.name,
     description: product.description,
-    category: product.category,
     brand: product.brand,
     selectedImg: { ...product.images[0] },
     quantity: 1,
@@ -64,7 +62,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         (item) => item.id === cartProduct.id
       );
 
-      if (existingIndex > -1) {
+      if (existingIndex > 0) {
         setIsProductInCart(true);
       }
     }

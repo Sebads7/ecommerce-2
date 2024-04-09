@@ -1,4 +1,4 @@
-import Container from "@/app/components/Container";
+import Container from "@/app/components/products/Container";
 import { products } from "@/utils/products";
 import ProductDetails from "./ProductDetails";
 import ListRaiting from "./ListRaiting";
