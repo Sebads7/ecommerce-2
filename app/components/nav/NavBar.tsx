@@ -1,7 +1,7 @@
 //sfc to create small snippets of code
 
 import Link from "next/link";
-import Container from "../products/Container";
+import Container from "../Container";
 import { Redressed } from "next/font/google";
 import CartCount from "./CartCount";
 import UserMenu from "./UserMenu";
@@ -26,7 +26,7 @@ const NavBar = async () => {
               E-Shop
             </Link>
             <div className="hidden md:block">Search</div>
-            <div className="flex items-center gap-8 md:gap-12">
+            <div className="flex items-center gap-8 md:gap-5">
               <CartCount />
               <UserMenu currentUser={currentUser} />
             </div>
