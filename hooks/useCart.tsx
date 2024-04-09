@@ -17,6 +17,8 @@ type CartContextType = {
   handleQtyIncrease: (product: CartProductType) => void;
   handleQtyDecrease: (product: CartProductType) => void;
   handleClearCart: () => void;
+  paymentIntent: string | null;
+  handleSetPayment: (val: string | null) => void;
 };
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -26,24 +28,26 @@ interface Props {
 }
 
 export const CartContextProvider = (props: Props) => {
-  const [cartTotalQty, setCartTotalQty] = useState<number>(0);
+  const [cartTotalQty, setCartTotalQty] = useState(0);
   const [cartTotalAmount, setCartTotalAmount] = useState(0);
 
   const [cartProducts, setCartProducts] = useState<CartProductType[] | null>(
     null
   );
 
-  // console.log("qty", cartTotalQty);
-  // console.log("amount", cartTotalAmount);
-
-  // console.log(cartTotalQty);
+  // Payment Gateway
+  const [paymentIntent, setPaymentIntent] = useState<string | null>(null);
 
   // SAVE DATA TO LOCAL STORAGE
   useEffect(() => {
     const cartItems: any = localStorage.getItem("eShopCartItems");
     const productsInCart: CartProductType[] | null = JSON.parse(cartItems);
+    // setting payment into local storage
+    const eShopPayment: any = localStorage.getItem("eShopPayment");
+    const paymentIntent: string | null = JSON.parse(eShopPayment);
 
     setCartProducts(productsInCart);
+    setPaymentIntent(paymentIntent);
   }, []);
 
   // CALCULATE TOTAL QUANTITY OF ITEMS IN CART
@@ -140,6 +144,13 @@ export const CartContextProvider = (props: Props) => {
     [cartProducts, setCartProducts]
   );
 
+  // HANDLE PAYMENT INTENT
+
+  const handleSetPayment = useCallback((val: string | null) => {
+    setPaymentIntent(val);
+    localStorage.setItem("eShopPayment", JSON.stringify(val));
+  }, []);
+
   const value = {
     cartTotalQty,
     cartTotalAmount,
@@ -149,6 +160,8 @@ export const CartContextProvider = (props: Props) => {
     handleQtyIncrease,
     handleQtyDecrease,
     handleClearCart,
+    paymentIntent,
+    handleSetPayment,
   };
   return <CartContext.Provider value={value} {...props} />;
 };
