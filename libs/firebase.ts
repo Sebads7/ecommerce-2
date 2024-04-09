@@ -7,7 +7,7 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDW1wdl9gYk4SlFx70ZMJCyEIxfKoKzmoA",
+  apiKey: process.env.FIREBASE_KEY,
   authDomain: "e-commerce-next-2ae04.firebaseapp.com",
   projectId: "e-commerce-next-2ae04",
   storageBucket: "e-commerce-next-2ae04.appspot.com",
