@@ -12,7 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Heading from "../components/products/Heading";
-import Button from "../components/products/Button";
+import Button from "../components/Button";
 
 interface CheckoutFormProps {
   clientSecret: string;

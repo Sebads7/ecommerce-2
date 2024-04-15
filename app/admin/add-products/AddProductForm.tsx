@@ -5,7 +5,7 @@ import CustomCheckBox from "@/app/components/inputs/CustomCheckBox";
 import Input from "@/app/components/inputs/Input";
 import SelectColor from "@/app/components/inputs/SelectColor";
 import TextArea from "@/app/components/inputs/TextArea";
-import Button from "@/app/components/products/Button";
+import Button from "@/app/components/Button";
 import Heading from "@/app/components/products/Heading";
 import firebaseApp from "@/libs/firebase";
 

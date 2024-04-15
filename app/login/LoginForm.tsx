@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Input from "../components/inputs/Input";
 import Heading from "../components/products/Heading";
 import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
-import Button from "../components/products/Button";
+import Button from "../components/Button";
 import Link from "next/link";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { signIn } from "next-auth/react";

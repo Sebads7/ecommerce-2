@@ -3,7 +3,7 @@
 import { formatPrice } from "@/utils/formatPrice";
 import { truncateText } from "@/utils/truncateText";
 import { Rating } from "@mui/material";
-import { truncate } from "fs";
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 

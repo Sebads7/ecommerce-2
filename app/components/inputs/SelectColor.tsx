@@ -3,7 +3,7 @@
 import { ImageType } from "@/app/admin/add-products/AddProductForm";
 import { useCallback, useEffect, useState } from "react";
 import SelectImage from "./SelectImage";
-import Button from "../products/Button";
+import Button from "../Button";
 
 interface SelectColorProps {
   item: ImageType;
