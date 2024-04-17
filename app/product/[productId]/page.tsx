@@ -3,13 +3,16 @@ import ProductDetails from "./ProductDetails";
 import ListRaiting from "./ListRaiting";
 import getProductById from "@/actions/getProductById";
 import NullData from "@/app/components/NullData";
+import AddRating from "./AddRating";
+import { getCurrentUser } from "@/actions/getCurrentUsers";
 
 interface IParams {
   productId: string;
 }
 
-const page = async ({ params }: { params: IParams }) => {
+const Product = async ({ params }: { params: IParams }) => {
   const product = await getProductById(params);
+  const user = await getCurrentUser();
 
   if (!product) return <NullData title="Product not found" />;
 
@@ -18,7 +21,7 @@ const page = async ({ params }: { params: IParams }) => {
       <Container>
         <ProductDetails product={product} />
         <div className="flex flex-col mt-20 gap-4">
-          <div>Add Rating</div>
+          <AddRating product={product} user={user} />
           <ListRaiting product={product} />
         </div>
       </Container>
@@ -26,4 +29,4 @@ const page = async ({ params }: { params: IParams }) => {
   );
 };
 
-export default page;
+export default Product;

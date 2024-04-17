@@ -9,12 +9,13 @@ interface ListRaitingProps {
 }
 
 const ListRaiting: React.FC<ListRaitingProps> = ({ product }) => {
+  if (product.reviews.length === 0) return null;
   return (
     <div>
       <Heading title="Product Review" />
       <div className="text-sm mt-2">
         {product.reviews.map((review: any, index: any) => (
-          <div key={index} className="max-w-[300px]">
+          <div key={index} className="max-w-[500px]">
             <div className="flex gap-2">
               <Avatar src={review?.user.image} />
               <div className="font-semibold">{review.user?.name}</div>

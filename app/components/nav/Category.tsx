@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/dist/client/components/navigation";
 import { useRouter } from "next/navigation";
 import React, { useCallback } from "react";
 import { IconType } from "react-icons";
@@ -16,7 +16,7 @@ const Category: React.FC<CategoryProps> = ({ label, icon: Icon, selected }) => {
   const router = useRouter();
   const params = useSearchParams();
   const handleClick = useCallback(() => {
-    if (label === " all") {
+    if (label === "All") {
       router.push("/");
     } else {
       let currentQuery = {};
@@ -27,7 +27,7 @@ const Category: React.FC<CategoryProps> = ({ label, icon: Icon, selected }) => {
 
       const updatedQuery: any = {
         ...currentQuery,
-        Category: label,
+        category: label,
       };
 
       const url = queryString.stringifyUrl(
